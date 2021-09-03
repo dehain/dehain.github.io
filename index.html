@@ -1,1 +1,35 @@
-<p>Hello world!</p>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Hello World Example
+    </title>
+</head>
+
+<body>
+
+    <h1>
+        Hello World!
+    </h1>
+
+    <label id = "some_text">
+        Hello
+    </label>
+
+    <br>
+
+    <button onclick="doit()">
+        Click Here!
+    </button>
+
+    <script>
+        function doit() {
+            document.getElementById('some_text').innerHTML
+                = 'Hello World!';
+        }
+    </script>
+</body>
+
+</html>
