@@ -21,6 +21,19 @@
 
             input {
                 font-size: 1.5em;
+                width: 4em;
+            }
+
+            select {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 1.5em;
+            }
+
+            th, td {
+                padding-right: 2em;
             }
         </style>
     </head>
@@ -101,30 +114,33 @@
         <label id="classification_value"></label>
         <br><br>
 
-        <label>High:</label>
-        <label id="high_value">0</label>
-        <br>
-
-        <label>GM (95%):</label>
-        <label id="gm_value">0</label>
-        <br>
-
-        <label>M (85%):</label>
-        <label id="m_value">0</label>
-        <br>
-
-        <label>A (75%):</label>
-        <label id="a_value">0</label>
-        <br>
-
-        <label>B (60%):</label>
-        <label id="b_value">0</label>
-        <br>
-
-        <label>C (45%):</label>
-        <label id="c_value">0</label>
-        <br>
-
+        <table>
+            <tr>
+                <td>High:</td>
+                <td id="high_val">0</td>
+            </tr>
+             <tr>
+                <td>GM (95%)</td>
+                <td id="gm_val">0</td>
+            </tr>
+              <tr>
+                <td>M (85%)</td>
+                <td id="m_val">0</td>
+            </tr>
+               <tr>
+                <td>A (75%)</td>
+                <td id="a_val">0</td>
+            </tr>
+                <tr>
+                <td>B (60%)</td>
+                <td id="b_val">0</td>
+            </tr>
+                 <tr>
+                     <td>C (45%)</td>
+                <td id="c_val">0</td>
+            </tr>
+  
+        </table>
 
         <script>
             var limited_data = [
@@ -257,22 +273,22 @@ function classifier_select() {
 
     }
 
-    document.getElementById('high_value').innerHTML
+    document.getElementById('high_val').innerHTML
         = Number(high_score).toFixed(4);
 
-    document.getElementById('gm_value').innerHTML
+    document.getElementById('gm_val').innerHTML
         = Number(gm_score).toFixed(2);
 
-    document.getElementById('m_value').innerHTML
+    document.getElementById('m_val').innerHTML
         = Number(m_score).toFixed(2);
 
-    document.getElementById('a_value').innerHTML
+    document.getElementById('a_val').innerHTML
         = Number(a_score).toFixed(2);
 
-    document.getElementById('b_value').innerHTML
+    document.getElementById('b_val').innerHTML
         = Number(b_score).toFixed(2);
 
-    document.getElementById('c_value').innerHTML
+    document.getElementById('c_val').innerHTML
         = Number(c_score).toFixed(2);
 
     document.getElementById('classification_value').innerHTML
