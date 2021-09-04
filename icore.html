@@ -1,0 +1,259 @@
+<html>
+    <body onload="classifier_select()">
+
+        <h1>Unnofficial ICORE Classification Calculator</h1>
+
+
+        <label for="divisions">Division</label>
+        <select name="division" id="division" onchange="division_select()">
+            <option value="Limited">Limited</option>
+        </select>
+        <br><br>
+
+        <label for="classifier">Classifier</label>
+        <select name="classifier" id="classifier" onchange="classifier_select()">
+            <option value="CS-001">CS-001</option>
+            <option value="CS-002">CS-002</option>
+            <option value="CS-003">CS-003</option>
+            <option value="CS-004">CS-004</option>
+            <option value="CS-005">CS-005</option>
+            <option value="CS-006">CS-006</option>
+            <option value="CS-007">CS-007</option>
+            <option value="CS-008">CS-008</option>
+            <option value="CS-009">CS-009</option>
+            <option value="CS-010">CS-010</option>
+            <option value="CS-011">CS-011</option>
+            <option value="CS-012">CS-012</option>
+            <option value="CS-013">CS-013</option>
+            <option value="CS-014">CS-014</option>
+            <option value="CS-015">CS-015</option>
+            <option value="CS-016">CS-016</option>
+            <option value="CS-017">CS-017</option>
+            <option value="CS-018">CS-018</option>
+            <option value="CS-019">CS-019</option>
+            <option value="CS-020">CS-020</option>
+            <option value="CS-021">CS-021</option>
+            <option value="CS-022">CS-022</option>
+            <option value="CS-023">CS-023</option>
+            <option value="CS-024">CS-024</option>
+            <option value="CS-025">CS-025</option>
+            <option value="CS-026">CS-026</option>
+            <option value="CS-027">CS-027</option>
+            <option value="CS-028">CS-028</option>
+            <option value="CS-029">CS-029</option>
+            <option value="CS-030">CS-030</option>
+            <option value="CS-031">CS-031</option>
+            <option value="CS-032">CS-032</option>
+            <option value="CS-033">CS-033</option>
+            <option value="CS-034">CS-034</option>
+            <option value="CS-035">CS-035</option>
+            <option value="CS-036">CS-036</option>
+            <option value="CS-037">CS-037</option>
+            <option value="CS-038">CS-038</option>
+            <option value="CS-039">CS-039</option>
+            <option value="CS-040">CS-040</option>
+            <option value="CS-041">CS-041</option>
+            <option value="CS-042">CS-042</option>
+            <option value="CS-043">CS-043</option>
+            <option value="CS-044">CS-044</option>
+            <option value="CS-045">CS-045</option>
+            <option value="CS-046">CS-046</option>
+            <option value="CS-047">CS-047</option>
+            <option value="CS-048">CS-048</option>
+            <option value="CS-049">CS-049</option>
+            <option value="CS-050">CS-050</option>
+            <option value="CS-051">CS-051</option>
+            <option value="CS-052">CS-052</option>
+            <option value="CS-053">CS-053</option>
+        </select>
+        <br><br>
+
+        <label for="score">Score (optional)</label>
+        <input type="text" id="score" name="score" onchange="classifier_select()"><br><br>
+
+        <label id="classification">Classification:</label>
+        <label id="classification_value"></label>
+        <br><br>
+
+        <label>High:</label>
+        <label id="high_value">0</label>
+        <br>
+
+        <label>GM (95%):</label>
+        <label id="gm_value">0</label>
+        <br>
+
+        <label>M (85%):</label>
+        <label id="m_value">0</label>
+        <br>
+
+        <label>A (75%):</label>
+        <label id="a_value">0</label>
+        <br>
+
+        <label>B (60%):</label>
+        <label id="b_value">0</label>
+        <br>
+
+        <label>C (45%):</label>
+        <label id="c_value">0</label>
+        <br>
+
+
+        <script>
+            var limited_data = [
+                { Classifier : 'CS-001', High : 15.5023 },
+                { Classifier : 'CS-002', High : 16.0 },
+                { Classifier : 'CS-003', High : 17.0 },
+                { Classifier : 'CS-004', High : 18.0 },
+                { Classifier : 'CS-001', High : 15.5023 },
+                { Classifier : 'CS-002', High :	20.0774 },
+                { Classifier : 'CS-003', High :	8.8997 },
+                { Classifier : 'CS-004', High :	7.3297 },
+                { Classifier : 'CS-005', High :	10.9604 },
+                { Classifier : 'CS-006', High :	15.1182 },
+                { Classifier : 'CS-007', High :	13.0401 },
+                { Classifier : 'CS-008', High :	15.9481 },
+                { Classifier : 'CS-009', High :	11.5692 },
+                { Classifier : 'CS-010', High :	16.3813 },
+                { Classifier : 'CS-011', High :	11.9404 },
+                { Classifier : 'CS-012', High :	11.1594 },
+                { Classifier : 'CS-013', High :	11.8403 },
+                { Classifier : 'CS-014', High :	17.6740 },
+                { Classifier : 'CS-015', High :	9.5593 },
+                { Classifier : 'CS-016', High :	13.6505 },
+                { Classifier : 'CS-017', High :	6.3100 },
+                { Classifier : 'CS-018', High :	13.1107 },
+                { Classifier : 'CS-019', High :	16.6811 },
+                { Classifier : 'CS-020', High :	19.0709 },
+                { Classifier : 'CS-021', High :	16.2304 },
+                { Classifier : 'CS-022', High :	21.5983 },
+                { Classifier : 'CS-023', High :	19.3996 },
+                { Classifier : 'CS-024', High :	13.5304 },
+                { Classifier : 'CS-025', High :	11.7188 },
+                { Classifier : 'CS-026', High :	23.9206 },
+                { Classifier : 'CS-027', High :	24.9180 },
+                { Classifier : 'CS-028', High :	11.2308 },
+                { Classifier : 'CS-029', High :	14.5100 },
+                { Classifier : 'CS-030', High :	13.3707 },
+                { Classifier : 'CS-031', High :	14.4504 },
+                { Classifier : 'CS-032', High :	7.5707 },
+                { Classifier : 'CS-033', High :	8.6510 },
+                { Classifier : 'CS-034', High :	17.6091 },
+                { Classifier : 'CS-035', High :	8.4102 },
+                { Classifier : 'CS-036', High :	23.2177 },
+                { Classifier : 'CS-037', High :	13.3607 },
+                { Classifier : 'CS-038', High :	12.0006 },
+                { Classifier : 'CS-039', High :	11.1407 },
+                { Classifier : 'CS-040', High :	16.3077 },
+                { Classifier : 'CS-041', High :	10.5091 },
+                { Classifier : 'CS-042', High :	12.9492 },
+                { Classifier : 'CS-043', High :	10.5009 },
+                { Classifier : 'CS-044', High :	13.2994 },
+                { Classifier : 'CS-045', High :	18.8998 },
+                { Classifier : 'CS-046', High :	21.3000 },
+                { Classifier : 'CS-047', High :	16.3706 },
+                { Classifier : 'CS-048', High :	12.1476 },
+                { Classifier : 'CS-049', High :	16.5400 },
+                { Classifier : 'CS-050', High :	17.2096 },
+                { Classifier : 'CS-051', High :	18.4905 },
+                { Classifier : 'CS-052', High :	23.8791 },
+                { Classifier : 'CS-053', High :	12.1994 },
+                ];
+
+            function division_select() {
+                my_text = "Jello World!"
+                my_text = document.getElementById('division').value;
+                document.getElementById('classification').innerHTML
+                    = my_text;
+            }
+
+            function classifier_select() {
+                my_classifier = document.getElementById('classifier').value;
+                score = document.getElementById('score').value;
+                my_score = -1;
+                if( score != "" )
+                {
+                    my_score = Number(score);
+                }
+
+                my_classification = "";
+
+
+                len = limited_data.length;
+                high_score = 0.0;
+                gm_score = 0.0;
+                m_score = 0.0;
+                a_score = 0.0;
+                b_score = 0.0;
+                c_score = 0.0;
+
+                for( i=0; i < len; i++)
+                {
+                    var record = limited_data[i];
+                    if( record["Classifier"] == my_classifier )
+                    {
+                        high_score = record["High"];
+                        gm_score = (high_score/0.95);
+                        m_score = (high_score/0.85);
+                        a_score = (high_score/0.75);
+                        b_score = (high_score/0.60);
+                        c_score = (high_score/0.45);
+
+                        if( my_score != -1 )
+                        {
+                            if( my_score > c_score )
+                            {
+                                my_classification = "D";
+                            }
+                            else if (my_score > b_score )
+                            {
+                                my_classification = "C";
+                            }
+                            else if (my_score > a_score )
+                            {
+                                my_classification = "B";
+                            }
+                            else if (my_score > m_score )
+                            {
+                                my_classification = "A";
+                            }
+                            else if (my_score > gm_score )
+                            {
+                                my_classification = "M";
+                            }
+                            else
+                            {
+                                my_classification = "GM";
+                            }
+                        }
+                    }
+
+                }
+
+                document.getElementById('high_value').innerHTML
+                    = Number(high_score).toFixed(4);
+
+                document.getElementById('gm_value').innerHTML
+                    = Number(gm_score).toFixed(2);
+
+                document.getElementById('m_value').innerHTML
+                    = Number(m_score).toFixed(2);
+
+                document.getElementById('a_value').innerHTML
+                    = Number(a_score).toFixed(2);
+
+                document.getElementById('b_value').innerHTML
+                    = Number(b_score).toFixed(2);
+
+                document.getElementById('c_value').innerHTML
+                    = Number(c_score).toFixed(2);
+
+                document.getElementById('classification_value').innerHTML
+                    = my_classification;
+
+
+            }
+        </script>
+    </body>
+</html>
