@@ -1,7 +1,33 @@
 <html>
+    <head>
+        <title>ICORE</title>
+
+        <style>
+            h1 {
+                font-size: 1.5em; /* 40px/16=2.5em */
+            }
+
+            h2 {
+                font-size: 1.5em; /* 30px/16=1.875em */
+            }
+
+            p {
+                font-size: 1.5em; /* 14px/16=0.875em */
+            }
+
+            label {
+                font-size: 1.5em;
+            }
+
+            input {
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+
     <body onload="classifier_select()">
 
-        <h1>Unofficial ICORE Classification Calculator</h1>
+        <h1>Unofficial ICORE<br>Classification Calculator</h1>
 
 
         <label for="divisions">Division</label>
@@ -159,101 +185,101 @@
                 { Classifier : 'CS-051', High :	18.4905 },
                 { Classifier : 'CS-052', High :	23.8791 },
                 { Classifier : 'CS-053', High :	12.1994 },
-                ];
+            ];
 
-            function division_select() {
-                my_text = "Jello World!"
-                my_text = document.getElementById('division').value;
-                document.getElementById('classification').innerHTML
-                    = my_text;
-            }
+function division_select() {
+    my_text = "Jello World!"
+    my_text = document.getElementById('division').value;
+    document.getElementById('classification').innerHTML
+        = my_text;
+}
 
-            function classifier_select() {
-                my_classifier = document.getElementById('classifier').value;
-                score = document.getElementById('score').value;
-                my_score = -1;
-                if( score != "" )
+function classifier_select() {
+    my_classifier = document.getElementById('classifier').value;
+    score = document.getElementById('score').value;
+    my_score = -1;
+    if( score != "" )
+    {
+        my_score = Number(score);
+    }
+
+    my_classification = "";
+
+
+    len = limited_data.length;
+    high_score = 0.0;
+    gm_score = 0.0;
+    m_score = 0.0;
+    a_score = 0.0;
+    b_score = 0.0;
+    c_score = 0.0;
+
+    for( i=0; i < len; i++)
+    {
+        var record = limited_data[i];
+        if( record["Classifier"] == my_classifier )
+        {
+            high_score = record["High"];
+            gm_score = (high_score/0.95);
+            m_score = (high_score/0.85);
+            a_score = (high_score/0.75);
+            b_score = (high_score/0.60);
+            c_score = (high_score/0.45);
+
+            if( my_score != -1 )
+            {
+                if( my_score > c_score )
                 {
-                    my_score = Number(score);
+                    my_classification = "D";
                 }
-
-                my_classification = "";
-
-
-                len = limited_data.length;
-                high_score = 0.0;
-                gm_score = 0.0;
-                m_score = 0.0;
-                a_score = 0.0;
-                b_score = 0.0;
-                c_score = 0.0;
-
-                for( i=0; i < len; i++)
+                else if (my_score > b_score )
                 {
-                    var record = limited_data[i];
-                    if( record["Classifier"] == my_classifier )
-                    {
-                        high_score = record["High"];
-                        gm_score = (high_score/0.95);
-                        m_score = (high_score/0.85);
-                        a_score = (high_score/0.75);
-                        b_score = (high_score/0.60);
-                        c_score = (high_score/0.45);
-
-                        if( my_score != -1 )
-                        {
-                            if( my_score > c_score )
-                            {
-                                my_classification = "D";
-                            }
-                            else if (my_score > b_score )
-                            {
-                                my_classification = "C";
-                            }
-                            else if (my_score > a_score )
-                            {
-                                my_classification = "B";
-                            }
-                            else if (my_score > m_score )
-                            {
-                                my_classification = "A";
-                            }
-                            else if (my_score > gm_score )
-                            {
-                                my_classification = "M";
-                            }
-                            else
-                            {
-                                my_classification = "GM";
-                            }
-                        }
-                    }
-
+                    my_classification = "C";
                 }
-
-                document.getElementById('high_value').innerHTML
-                    = Number(high_score).toFixed(4);
-
-                document.getElementById('gm_value').innerHTML
-                    = Number(gm_score).toFixed(2);
-
-                document.getElementById('m_value').innerHTML
-                    = Number(m_score).toFixed(2);
-
-                document.getElementById('a_value').innerHTML
-                    = Number(a_score).toFixed(2);
-
-                document.getElementById('b_value').innerHTML
-                    = Number(b_score).toFixed(2);
-
-                document.getElementById('c_value').innerHTML
-                    = Number(c_score).toFixed(2);
-
-                document.getElementById('classification_value').innerHTML
-                    = my_classification;
-
-
+                else if (my_score > a_score )
+                {
+                    my_classification = "B";
+                }
+                else if (my_score > m_score )
+                {
+                    my_classification = "A";
+                }
+                else if (my_score > gm_score )
+                {
+                    my_classification = "M";
+                }
+                else
+                {
+                    my_classification = "GM";
+                }
             }
+        }
+
+    }
+
+    document.getElementById('high_value').innerHTML
+        = Number(high_score).toFixed(4);
+
+    document.getElementById('gm_value').innerHTML
+        = Number(gm_score).toFixed(2);
+
+    document.getElementById('m_value').innerHTML
+        = Number(m_score).toFixed(2);
+
+    document.getElementById('a_value').innerHTML
+        = Number(a_score).toFixed(2);
+
+    document.getElementById('b_value').innerHTML
+        = Number(b_score).toFixed(2);
+
+    document.getElementById('c_value').innerHTML
+        = Number(c_score).toFixed(2);
+
+    document.getElementById('classification_value').innerHTML
+        = my_classification;
+
+
+}
         </script>
     </body>
 </html>
