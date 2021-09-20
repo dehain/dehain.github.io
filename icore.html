@@ -51,6 +51,7 @@
             <option value="Limited">Limited</option>
             <option value="Limited 6">Limited 6</option>
             <option value="Classic">Classic</option>
+            <option value="Open">Open</option>
         </select>
         <br><br>
 
@@ -316,6 +317,62 @@
                 { Classifier : 'CS-053', High : 12.1996 },
                 ];
 
+            var open_data = [
+                { Classifier : 'CS-001', High : 14.3102 },
+                { Classifier : 'CS-002', High : 16.0801 },
+                { Classifier : 'CS-003', High : 7.6798  },
+                { Classifier : 'CS-004', High : 6.3000  },
+                { Classifier : 'CS-005', High : 10.2396 },
+                { Classifier : 'CS-006', High : 13.4298 },
+                { Classifier : 'CS-007', High : 11.3797 },
+                { Classifier : 'CS-008', High : 12.5713 },
+                { Classifier : 'CS-009', High : 10.4495 },
+                { Classifier : 'CS-010', High : 12.4404 },
+                { Classifier : 'CS-011', High : 11.8109 },
+                { Classifier : 'CS-012', High : 9.8607  },
+                { Classifier : 'CS-013', High : 11.8303 },
+                { Classifier : 'CS-014', High : 16.9913 },
+                { Classifier : 'CS-015', High : 7.8996  },
+                { Classifier : 'CS-016', High : 11.3005 },
+                { Classifier : 'CS-017', High : 5.9001  },
+                { Classifier : 'CS-018', High : 11.4899 },
+                { Classifier : 'CS-019', High : 17.0694 },
+                { Classifier : 'CS-020', High : 17.0397 },
+                { Classifier : 'CS-021', High : 16.2498 },
+                { Classifier : 'CS-022', High : 19.1116 },
+                { Classifier : 'CS-023', High : 0.0000  },
+                { Classifier : 'CS-024', High : 11.6702 },
+                { Classifier : 'CS-025', High : 10.2303 },
+                { Classifier : 'CS-026', High : 0.0000  },
+                { Classifier : 'CS-027', High : 0.0000  },
+                { Classifier : 'CS-028', High : 11.6307 },
+                { Classifier : 'CS-029', High : 0.0000  },
+                { Classifier : 'CS-030', High : 9.7599  },
+                { Classifier : 'CS-031', High : 13.5496 },
+                { Classifier : 'CS-032', High : 7.2496  },
+                { Classifier : 'CS-033', High : 8.5298  },
+                { Classifier : 'CS-034', High : 15.7908 },
+                { Classifier : 'CS-035', High : 0.0000  },
+                { Classifier : 'CS-036', High : 0.0000  },
+                { Classifier : 'CS-037', High : 0.0000  },
+                { Classifier : 'CS-038', High : 11.3487 },
+                { Classifier : 'CS-039', High : 9.6905  },
+                { Classifier : 'CS-040', High : 0.0000  },
+                { Classifier : 'CS-041', High : 10.5102 },
+                { Classifier : 'CS-042', High : 12.9503 },
+                { Classifier : 'CS-043', High : 10.1395 },
+                { Classifier : 'CS-044', High : 12.9798 },
+                { Classifier : 'CS-045', High : 18.1806 },
+                { Classifier : 'CS-046', High : 20.5203 },
+                { Classifier : 'CS-047', High : 16.9004 },
+                { Classifier : 'CS-048', High : 12.2994 },
+                { Classifier : 'CS-049', High : 15.9598 },
+                { Classifier : 'CS-050', High : 15.2500 },
+                { Classifier : 'CS-051', High : 15.7493 },
+                { Classifier : 'CS-052', High : 22.9998 },
+                { Classifier : 'CS-053', High : 10.9997 },
+                ];
+
 
 function division_select() {
     classifier_select();
@@ -347,6 +404,10 @@ function classifier_select() {
     else if( my_division == "Classic" )
     {
         my_data_table = classic_data;
+    }
+    else if( my_division == "Open" )
+    {
+        my_data_table = open_data;
     }
 
     len = my_data_table.length;
